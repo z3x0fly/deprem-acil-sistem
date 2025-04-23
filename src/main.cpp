@@ -9,7 +9,7 @@
 
 // Ayarlar
 #define AP_SSID "ACIL-DURUM-DEPREMZEDE"
-#define API_URL "https://api.afad.gov.tr/latest-earthquakes"
+#define KANDILLI_API_URL "http://www.koeri.boun.edu.tr/scripts/lst0.asp"
 #define CHECK_INTERVAL 300000  // 5 dakikada bir kontrol
 
 // Global değişkenler
@@ -42,24 +42,49 @@ void setupWiFiAP() {
 String getEarthquakeData() {
   if (WiFi.status() != WL_CONNECTED) return "Internet yok";
   
-  WiFiClientSecure client;
-  client.setInsecure();
   HTTPClient http;
-  
-  http.begin(client, API_URL);
-  http.addHeader("Accept", "application/json");
+  http.begin(KANDILLI_API_URL);
   
   int httpCode = http.GET();
   if (httpCode == HTTP_CODE_OK) {
     String payload = http.getString();
-    DynamicJsonDocument doc(2048);
-    deserializeJson(doc, payload);
     
-    float magnitude = doc["data"][0]["magnitude"];
-    String location = doc["data"][0]["location"];
-    String date = doc["data"][0]["date"];
+    // Kandilli verisini parse etme
+    int startIndex = payload.indexOf("<pre>") + 5;
+    int endIndex = payload.indexOf("</pre>");
+    String earthquakeData = payload.substring(startIndex, endIndex);
     
-    return String(magnitude, 1) + " büyüklüğünde - " + location + " (" + date + ")";
+    // İlk satırı al (en son deprem)
+    int firstLineEnd = earthquakeData.indexOf('\n');
+    String firstLine = earthquakeData.substring(0, firstLineEnd);
+    
+    // Veriyi parçalara ayır
+    firstLine.trim();
+    String parts[10];
+    int partIndex = 0;
+    int lastSpace = 0;
+    
+    for (int i = 0; i < firstLine.length(); i++) {
+      if (firstLine[i] == ' ' && firstLine[i+1] == ' ' && partIndex < 9) {
+        parts[partIndex] = firstLine.substring(lastSpace, i);
+        parts[partIndex].trim();
+        lastSpace = i+2;
+        partIndex++;
+        i++;
+      }
+    }
+    parts[partIndex] = firstLine.substring(lastSpace);
+    
+    // Tarih ve saat
+    String dateTime = parts[0] + " " + parts[1];
+    
+    // Büyüklük
+    String magnitude = parts[6];
+    
+    // Yer bilgisi
+    String location = parts[8] + " " + parts[9];
+    
+    return magnitude + " büyüklüğünde - " + location + " (" + dateTime + ")";
   }
   return "API hatası: " + String(httpCode);
 }
@@ -69,9 +94,16 @@ void checkEarthquake() {
   if (!newData.startsWith("API hatası")) {
     lastEarthquake = newData;
     
-    if (newData.indexOf("7.") != -1 || newData.indexOf("8.") != -1 || newData.indexOf("9.") != -1) {
-      Serial.println("CRITICAL EARTHQUAKE DETECTED!");
-      setupWiFiAP();
+    // Büyüklüğü kontrol et (örneğin 7.0 ve üstü)
+    int magStart = newData.indexOf(" ");
+    if (magStart != -1) {
+      String magStr = newData.substring(0, magStart);
+      float magnitude = magStr.toFloat();
+      
+      if (magnitude >= 7.0) {
+        Serial.println("CRITICAL EARTHQUAKE DETECTED!");
+        setupWiFiAP();
+      }
     }
   }
 }
@@ -160,7 +192,7 @@ void handleUpdate() {
 }
 
 void setup() {
-  Serial.begin(115200); // Aynı hızı Serial Monitor'de seçtiğinizden emin olun
+  Serial.begin(115200);
   
   // WiFi bağlantısı
   DynamicJsonDocument personal(512);

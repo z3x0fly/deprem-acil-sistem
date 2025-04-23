@@ -8,7 +8,7 @@ Bu proje, 4.2'lik İstanbul depreminde yaşadığım iletişim çöküşünün d
 
 ## 📌 Gerçek Bir Hikaye
 
-**26 Eylül 2023, 03:21**  
+**23 Nisan 2025, 12:41**  
 - 4.2 büyüklüğünde depremle uyandım  
 - Telefonumda "Acil Durum Kullanımı Dışında Şebeke Yok" uyarısı  
 - Tüm operatörler (Turkcell/Vodafone/Türk Telekom) çöktü  
@@ -16,16 +16,20 @@ Bu proje, 4.2'lik İstanbul depreminde yaşadığım iletişim çöküşünün d
 - Eğer enkaz altında kalsaydım, kimseye ulaşamayacaktım  
 - GSM OPERATÖRLERİNE GÜVENMEYİN!
 + Bu cihaz hayatınızı kurtarabilir
-🔥 Sistem Özellikleri
+
+## 🔥 Sistem Özellikleri
+- Sadece 200 liraya alabileceğiniz (malum ekonomide kusura bakmayın) Bir ESP8266
+- 1 Adet PowerBank veya 5V Batarya
 
 
 ## Özellik	Açıklama
-🆘 Acil WiFi	Şebekeler çökse bile çalışan özerk ağ
-📡 Captive Portal	Enkaz altında bile bilgilerinizi yayınlar
-🚨 Otomatik Alarm	7+ büyüklükte otomatik acil durum modu
-📱 Modern Arayüz	Bootstrap 5 ile şık tasarım
-🔄 Gerçek Zamanlı Veri	AFAD'dan canlı deprem bilgisi
-🛠️ Kurulum
+- 🆘 Acil WiFi	Şebekeler çökse bile çalışan özerk ağ
+- 📡 Captive Portal	Enkaz altında bile bilgilerinizi yayınlar
+- 🚨 Otomatik Alarm	7+ büyüklükte otomatik acil durum modu
+- 📱 Modern Arayüz	Bootstrap 5 ile şık tasarım
+- 🔄 Gerçek Zamanlı Veri	AFAD'dan canlı deprem bilgisi
+  
+## 🛠️ Kurulum
 Donanım:
 
 ESP8266 (NodeMCU)
