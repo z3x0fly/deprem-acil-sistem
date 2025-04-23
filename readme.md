@@ -8,7 +8,7 @@ Bu proje, 4.2'lik İstanbul depreminde yaşadığım iletişim çöküşünün d
 
 ## 📌 Gerçek Bir Hikaye
 
-**26 Eylül 2023, 03:21**  
+**23 Nisan 2025, 12:41**  
 - 4.2 büyüklüğünde depremle uyandım  
 - Telefonumda "Acil Durum Kullanımı Dışında Şebeke Yok" uyarısı  
 - Tüm operatörler (Turkcell/Vodafone/Türk Telekom) çöktü  
