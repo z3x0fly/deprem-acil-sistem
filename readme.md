@@ -23,12 +23,13 @@ Bu proje, 4.2'lik İstanbul depreminde yaşadığım iletişim çöküşünün d
 
 
 ## Özellik	Açıklama
-🆘 Acil WiFi	Şebekeler çökse bile çalışan özerk ağ
-📡 Captive Portal	Enkaz altında bile bilgilerinizi yayınlar
-🚨 Otomatik Alarm	7+ büyüklükte otomatik acil durum modu
-📱 Modern Arayüz	Bootstrap 5 ile şık tasarım
-🔄 Gerçek Zamanlı Veri	AFAD'dan canlı deprem bilgisi
-🛠️ Kurulum
+- 🆘 Acil WiFi	Şebekeler çökse bile çalışan özerk ağ
+- 📡 Captive Portal	Enkaz altında bile bilgilerinizi yayınlar
+- 🚨 Otomatik Alarm	7+ büyüklükte otomatik acil durum modu
+- 📱 Modern Arayüz	Bootstrap 5 ile şık tasarım
+- 🔄 Gerçek Zamanlı Veri	AFAD'dan canlı deprem bilgisi
+  
+## 🛠️ Kurulum
 Donanım:
 
 ESP8266 (NodeMCU)
