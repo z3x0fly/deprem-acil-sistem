@@ -56,7 +56,7 @@ cppconst char* personalInfo = R"({
 ```
 ## 📸 Sistem Görselleri
 
-![alt text](https://i.hizliresim.com/2zqt0u6.png)
+![screenshot](images/deepseek_mermaid_20250423_fbe617.png)
 
 
 ## ❓ Neden Bu Proje?
