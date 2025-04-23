@@ -16,7 +16,10 @@ Bu proje, 4.2'lik İstanbul depreminde yaşadığım iletişim çöküşünün d
 - Eğer enkaz altında kalsaydım, kimseye ulaşamayacaktım  
 - GSM OPERATÖRLERİNE GÜVENMEYİN!
 + Bu cihaz hayatınızı kurtarabilir
-🔥 Sistem Özellikleri
+
+## 🔥 Sistem Özellikleri
+- Sadece 200 liraya alabileceğiniz (malum ekonomide kusura bakmayın) Bir ESP8266
+- 1 Adet PowerBank veya 5V Batarya
 
 
 ## Özellik	Açıklama
