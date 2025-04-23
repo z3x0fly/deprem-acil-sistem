@@ -36,9 +36,13 @@ Su geçirmez kutu
 
 ## Yazılım:
 ```diff
+
 git clone https://github.com/z3x0fly/deprem-acil-sistem.git
+
 platformio run --target upload
-Kişisel Bilgileri Ayarla (main.cpp içinde):
+```
+### Kişisel Bilgileri Ayarla (main.cpp içinde):
+```diff
 cppconst char* personalInfo = R"({
   "name": "ADINIZ",
   "address": "DETAYLI ADRES",
